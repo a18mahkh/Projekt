@@ -3,6 +3,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,51 +25,27 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-
-// Create a new class, Mountain, that can hold your JSON data
-
-// Create a ListView as in "Assignment 1 - Toast and ListView"
-
-// Retrieve data from Internet service using AsyncTask and the included networking code
-
-// Parse the retrieved JSON and update the ListView adapter
-
-// Implement a "refresh" functionality using Android's menu system
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class MainActivity extends AppCompatActivity {
-    // private String[] mountainNames = {"Matterhorn","Mont Blanc","Denali"};
-    //private String[] mountainLocations = {"Alps","Alps","Alaska"};
-    //private int[] mountainHeights ={4478,4808,6190};
-    // Create ArrayLists from the raw data above and use these lists when populating your ListView
-    ListView myListView;
-    //ArrayList<String> name_array = new ArrayList<String>();
-    //ArrayList<String> location_array = new ArrayList<String>();
-    private ArrayAdapter<Mountain> mountainAdapter;
+
+    //ListView myListView;
+
+    //private ArrayAdapter<Mountain> mountainAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new FetchData().execute();
-
-        //Mountain m = new Mountain("K2");
-        //Mountain m2 = new Mountain("Fuji", "Japan", 3776);
+        //new FetchData().execute();
 
 
-        //List<String> list=new ArrayList<String>(Arrays.asList(mountainNames));
+        //mountainAdapter=new ArrayAdapter(getApplicationContext(), R.layout.list_item_textview,R.id.my_item_textview);
 
-        //TextView txt = (TextView) findViewById(R.id.myTextView);
-        //txt.setText(((Mountain) m).info());*/
-
-        mountainAdapter=new ArrayAdapter(getApplicationContext(), R.layout.list_item_textview,R.id.my_item_textview);
-
-        myListView = (ListView) findViewById(R.id.my_Listview);
+        /*myListView = (ListView) findViewById(R.id.my_Listview);
         myListView.setAdapter(mountainAdapter);
         myListView.setDivider(null);
 
@@ -88,10 +65,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+*/
 
     }
-
-    @Override
+}
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.menu_main,menu);
@@ -251,3 +229,4 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
+*/
