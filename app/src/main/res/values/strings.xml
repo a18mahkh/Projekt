@@ -6,6 +6,5 @@
     <string name="title_suggest">Suggest</string>
     <string name="title_vote">Vote</string>
     <string name="title_movie">Movie</string>
-    <string name="title_extra">Movie</string>
-    <string name="title_exe">Movie</string>
+   
 </resources>
