@@ -44,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mImageUrls= new ArrayList<>();
 
+    private ArrayList<String> sn_mNames = new ArrayList<>();
+    private ArrayList<String> sn_mImageUrls= new ArrayList<>();
+
+
+
 
 
     @Override
@@ -133,7 +138,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
 }
+
+
+
    /* @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater=getMenuInflater();
