@@ -1,11 +1,12 @@
 package com.a18mahkh.projekt;
-import android.content.Intent;
-import android.os.AsyncTask;
+/*import android.content.Intent;
+import android.os.AsyncTask;*/
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Menu;
+/*import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,9 +25,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.URL;*/
+import java.util.ArrayList;
 
-import de.hdodenhof.circleimageview.CircleImageView;
+//import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -35,11 +37,21 @@ public class MainActivity extends AppCompatActivity {
 
     //private ArrayAdapter<Mountain> mountainAdapter;
 
+    private static  final String TAG = "MainActivity";
+
+    //vars
+
+    private ArrayList<String> mNames = new ArrayList<>();
+    private ArrayList<String> mImageUrls= new ArrayList<>();
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+            getImages();
         //new FetchData().execute();
 
 
@@ -68,6 +80,59 @@ public class MainActivity extends AppCompatActivity {
 */
 
     }
+
+    private void getImages(){
+        Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
+
+        mImageUrls.add("https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg");
+        mNames.add("Havasu Falls");
+
+        mImageUrls.add("https://i.redd.it/tpsnoz5bzo501.jpg");
+        mNames.add("Trondheim");
+
+        mImageUrls.add("https://i.redd.it/qn7f9oqu7o501.jpg");
+        mNames.add("Portugal");
+
+        mImageUrls.add("https://i.redd.it/j6myfqglup501.jpg");
+        mNames.add("Rocky Mountain National Park");
+
+
+        mImageUrls.add("https://i.redd.it/0h2gm1ix6p501.jpg");
+        mNames.add("Mahahual");
+
+        mImageUrls.add("https://i.redd.it/k98uzl68eh501.jpg");
+        mNames.add("Frozen Lake");
+
+
+        mImageUrls.add("https://i.redd.it/glin0nwndo501.jpg");
+        mNames.add("White Sands Desert");
+
+        mImageUrls.add("https://i.redd.it/obx4zydshg601.jpg");
+        mNames.add("Austrailia");
+
+        mImageUrls.add("https://i.imgur.com/ZcLLrkY.jpg");
+        mNames.add("Washington");
+
+
+        initRecycleView();
+
+    }
+
+    private void initRecycleView(){
+        Log.d(TAG, "initRecycleView: init recyler View");
+
+        LinearLayoutManager layoutManager=new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+
+        RecyclerView recyclerView=findViewById(R.id.recyclerView);
+
+        recyclerView.setLayoutManager(layoutManager);
+
+        RecycleViewAdapter adapter = new RecycleViewAdapter(this, mNames, mImageUrls);
+
+        recyclerView.setAdapter(adapter);
+    }
+
+
 }
    /* @Override
     public boolean onCreateOptionsMenu(Menu menu){
