@@ -7,7 +7,7 @@
     android:layout_margin="1dp">
 
 
-        <android.support.v7.widget.CardView
+      <!-- <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -38,8 +38,7 @@
 
             </android.support.v7.widget.LinearLayoutCompat>
 
-        </android.support.v7.widget.CardView>
-    <!--
+        </android.support.v7.widget.CardView>-->
 
     <android.support.v7.widget.CardView
         android:layout_width="120dp"
@@ -59,8 +58,7 @@
                 android:layout_height="90dp"
                 android:scaleType="centerCrop"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/matterhorn" />
+                android:layout_marginTop="8dp"/>
 
             <TextView
                 android:id="@+id/name_view"
@@ -80,10 +78,6 @@
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>
-
-
-
-    -->
 
 
 </RelativeLayout>

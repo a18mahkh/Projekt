@@ -44,7 +44,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
         viewHolder.title_textView.setText(listItem.getMovie_title());
-        viewHolder.desc_textView.setText(listItem.getMovie_description());
+       // viewHolder.desc_textView.setText(listItem.getMovie_description());
 
         Picasso.with(context)
                 .load(listItem.getImgUrl())
@@ -68,18 +68,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        //CircleImageView banner_image;
+        CircleImageView banner_image;
         TextView title_textView;
-        TextView desc_textView;
-        ImageView banner_image;
+        //TextView desc_textView;
+        //ImageView banner_image;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            title_textView = itemView.findViewById(R.id.title_textView);
-            desc_textView=itemView.findViewById(R.id.desc_textView);
-            banner_image=itemView.findViewById(R.id.img_imageView);
+            title_textView = itemView.findViewById(R.id.name_view);
+           // desc_textView=itemView.findViewById(R.id.desc_textView);
+            banner_image=itemView.findViewById(R.id.image_view);
         }
     }
 }

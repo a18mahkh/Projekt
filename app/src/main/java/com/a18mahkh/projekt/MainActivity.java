@@ -46,9 +46,9 @@ public class MainActivity extends AppCompatActivity {
         //getting the views from xml
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
 
         //initializing adapter
         listItems = new ArrayList();
@@ -164,7 +164,6 @@ public class MainActivity extends AppCompatActivity {
 
                         Movie_itemlist item = new Movie_itemlist(
                                 jsonObject.getString("name"),
-                                jsonObject.getString("location"),
                                 jsonObject.getString("auxdata")
                         );
 

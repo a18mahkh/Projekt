@@ -7,9 +7,9 @@ public class Movie_itemlist{
     private String imgUrl;
 
 
-    public Movie_itemlist(String movie_title, String movie_description, String imgUrl) {
+    public Movie_itemlist(String movie_title, String imgUrl) {
         this.movie_title = movie_title;
-        this.movie_description = movie_description;
+       // this.movie_description = movie_description;
         this.imgUrl= imgUrl;
     }
 

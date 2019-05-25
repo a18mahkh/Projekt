@@ -8,15 +8,15 @@
     tools:context="com.a18mahkh.projekt.MainActivity">
 
 
-    <android.support.v7.widget.RecyclerView
+    <!--<android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+    </android.support.v7.widget.RecyclerView>-->
 
 
-   <!-- <ScrollView
+   <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -198,6 +198,6 @@
         app:layout_constraintBottom_toBottomOf="@id/scrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/navigation" />-->
+        app:menu="@menu/navigation" />
 
 </android.support.constraint.ConstraintLayout>
