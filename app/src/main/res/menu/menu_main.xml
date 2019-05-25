@@ -12,12 +12,4 @@
         android:gravity="center"
         app:showAsAction="never" />
 
-    <!--<item
-        android:id="@+id/action_refresh"
-        android:orderInCategory="10"
-        android:title="@string/action_refresh"
-        android:icon="@drawable/refreshbtn"
-        android:gravity="center"
-        app:showAsAction="always"/>-->
-
 </menu>

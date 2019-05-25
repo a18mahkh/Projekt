@@ -14,11 +14,10 @@
         It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
         and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
 
-    <string name="about_text"><h2>About</h2>\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-        industry\s standard dummy text ever since the 1500s, when an unknown printer took
-        a galley of type and scrambled it to make a type specimen book. It has survived not only
-        five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="about_text">Appen är gjort för världens bästa WEBUG familjen som tycker om att omgås och kolla på filmer tillsammans efter all uttråkade tentor och inlämningar.
+        Just nu används sociala medier för att bestämma tid och filmer som man vill kolla, men tänk om WEBUG hade en egen bio app, hur fan kul skulle det vara?\nI denna app man kan se
+        senast spelade filmer på WEBUG Bio så man inte föreslår samma film igen, Man kan föreslå filmer för nästa bioträff, eller man kan
+        rösta på filmer som andra har redan föreslagit, man kan se vilka filmer som har fått flest röster/på trending och till slut man kan anmäla sig om man kommer till nästa bioträff.
+    </string>
 
 </resources>

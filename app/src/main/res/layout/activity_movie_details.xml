@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/movie_detailTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Movie Title"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/montserrat"
+                    android:padding="15dp"/>
+
+                <ImageView
+                    android:id="@+id/movie_detailBanner"
+                    android:tooltipText="Movie banner"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:padding="15dp"
+                    android:src="@drawable/montblanc"/>
+
+                <TextView
+                    android:id="@+id/movie_details_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Extended info about the movie"
+                    android:fontFamily="@font/montserrat"
+                    android:padding="15dp"/>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

@@ -26,162 +26,218 @@
         android:orientation="vertical"
         android:scrollbars="none">
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_vertical_margin">
+       <android.support.constraint.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:paddingBottom="@dimen/activity_vertical_margin">
 
-            <TextView
-                android:id="@+id/trendingText"
-                android:layout_width="372dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="16dp"
-                android:text="Trending just nu för nästa bioträff"
-                android:textStyle="bold"
-                app:fontFamily="@font/montserrat"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+           <TextView
+               android:id="@+id/trendingText"
+               android:layout_width="372dp"
+               android:layout_height="50dp"
+               android:layout_marginStart="20dp"
+               android:layout_marginLeft="20dp"
+               android:layout_marginTop="16dp"
+               android:text="Trending just nu för nästa bioträff"
+               android:textStyle="bold"
+               app:fontFamily="@font/montserrat"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="384dp"
-                android:layout_height="146dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/trendingText">
-
-
-            </android.support.v7.widget.RecyclerView>
-
-            <TextView
-                android:id="@+id/senasteText"
-                android:layout_width="372dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="12dp"
-                android:text="Senaste på bio"
-                android:textStyle="bold"
-                app:fontFamily="@font/montserrat"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+           <android.support.v7.widget.RecyclerView
+               android:id="@+id/recyclerView"
+               android:layout_width="384dp"
+               android:layout_height="146dp"
+               android:layout_marginStart="4dp"
+               android:layout_marginLeft="4dp"
+               android:orientation="horizontal"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/trendingText">
 
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardView"
-                android:layout_width="120dp"
-                android:layout_height="130dp"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="20dp"
-                app:cardCornerRadius="4dp"
-                app:cardElevation="1dp"
-                app:cardMaxElevation="2dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/senasteText">
+           </android.support.v7.widget.RecyclerView>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/senaste_image_view"
-                        android:layout_width="90dp"
-                        android:layout_height="90dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="8dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/matterhorn" />
-
-                    <TextView
-                        android:id="@+id/senaste_name_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="20dp"
-                        android:layout_below="@+id/senaste_image_view"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:autoSizeMaxTextSize="15sp"
-                        android:autoSizeMinTextSize="8sp"
-                        android:autoSizeTextType="uniform"
-                        android:fontFamily="@font/montserrat"
-                        android:gravity="center"
-                        android:text="Daddy Home"
-                        android:textColor="#000" />
-
-                </RelativeLayout>
-            </android.support.v7.widget.CardView>
+           <TextView
+               android:id="@+id/senasteText"
+               android:layout_width="372dp"
+               android:layout_height="50dp"
+               android:layout_marginStart="20dp"
+               android:layout_marginLeft="20dp"
+               android:layout_marginTop="12dp"
+               android:text="Senaste på bio"
+               android:textStyle="bold"
+               app:fontFamily="@font/montserrat"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
 
-            <TextView
-                android:id="@+id/title_nyheter"
-                android:layout_width="match_parent"
-                android:layout_height="41dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat"
-                android:text="Nyheter från Webug bio"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+           <android.support.v7.widget.CardView
+               android:id="@+id/cardView"
+               android:layout_width="120dp"
+               android:layout_height="150dp"
+               android:layout_centerInParent="true"
+               android:layout_marginLeft="20dp"
+               app:cardCornerRadius="4dp"
+               app:cardElevation="1dp"
+               app:cardMaxElevation="2dp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/senasteText">
 
-            <ImageView
-                android:id="@+id/nyheter_imageView"
-                android:layout_width="400dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_nyheter"
-                app:srcCompat="@drawable/denali" />
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/nyheter"
-                android:layout_width="match_parent"
-                android:layout_height="329dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:fontFamily="@font/montserrat"
-                android:text="@string/nyheter"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nyheter_imageView" />
+                   <ImageView
+                       android:id="@+id/senaste_image_view"
+                       android:layout_width="90dp"
+                       android:layout_height="105dp"
+                       android:layout_centerHorizontal="true"
+                       android:layout_marginTop="8dp"
+                       android:src="@drawable/montblanc" />
 
+                   <TextView
+                       android:id="@+id/senaste_name_view"
+                       android:layout_width="wrap_content"
+                       android:layout_height="20dp"
+                       android:layout_below="@+id/senaste_image_view"
+                       android:layout_centerHorizontal="true"
+                       android:layout_marginTop="5dp"
+                       android:layout_marginBottom="5dp"
+                       android:autoSizeMaxTextSize="15sp"
+                       android:autoSizeMinTextSize="8sp"
+                       android:autoSizeTextType="uniform"
+                       android:fontFamily="@font/montserrat"
+                       android:gravity="center"
+                       android:text="Daddy Home"
+                       android:textColor="#000" />
 
-            <ImageView
-                android:id="@+id/nyheter_imageView_2"
-                android:layout_width="400dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nyheter"
-                app:srcCompat="@drawable/denali" />
-
-            <TextView
-                android:id="@+id/nyheter_2"
-                android:layout_width="match_parent"
-                android:layout_height="329dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:fontFamily="@font/montserrat"
-                android:text="@string/nyheter"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nyheter_imageView_2" />
+               </RelativeLayout>
+           </android.support.v7.widget.CardView>
 
 
+           <TextView
+               android:id="@+id/title_nyheter"
+               android:layout_width="match_parent"
+               android:layout_height="41dp"
+               android:layout_marginStart="20dp"
+               android:layout_marginLeft="20dp"
+               android:layout_marginTop="20dp"
+               android:fontFamily="@font/montserrat"
+               android:text="Nyheter från Webug bio"
+               android:textStyle="bold"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+           <android.support.v7.widget.CardView
+               android:id="@+id/article1"
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:layout_marginStart="16dp"
+               android:layout_marginLeft="16dp"
+               android:layout_marginTop="10dp"
+               android:layout_marginEnd="16dp"
+               android:layout_marginRight="16dp"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintHorizontal_bias="0.5"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/title_nyheter">
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="16dp"
+                   android:layout_marginLeft="16dp"
+                   android:layout_marginTop="8dp"
+                   android:layout_marginEnd="16dp"
+                   android:layout_marginRight="16dp"
+                   android:fontFamily="@font/montserrat"
+                   android:text="Article 1" />
 
 
-        </android.support.constraint.ConstraintLayout>
+           </android.support.v7.widget.CardView>
+
+           <android.support.v7.widget.CardView
+               android:id="@+id/article2"
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:layout_marginStart="16dp"
+               android:layout_marginLeft="16dp"
+               android:layout_marginTop="10dp"
+               android:layout_marginEnd="16dp"
+               android:layout_marginRight="16dp"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintHorizontal_bias="0.5"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/article1">
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="16dp"
+                   android:layout_marginLeft="16dp"
+                   android:layout_marginTop="8dp"
+                   android:layout_marginEnd="16dp"
+                   android:layout_marginRight="16dp"
+                   android:fontFamily="@font/montserrat"
+                   android:text="Article 2" />
+
+
+           </android.support.v7.widget.CardView>
+
+           <android.support.v7.widget.CardView
+               android:id="@+id/article3"
+               android:layout_width="match_parent"
+               android:layout_height="200dp"
+               android:layout_marginStart="16dp"
+               android:layout_marginLeft="16dp"
+               android:layout_marginTop="10dp"
+               android:layout_marginEnd="16dp"
+               android:layout_marginRight="16dp"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintHorizontal_bias="0.5"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/article2">
+
+               <TextView
+                   android:id="@+id/article3_title"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="16dp"
+                   android:layout_marginLeft="16dp"
+                   android:layout_marginTop="8dp"
+                   android:layout_marginEnd="16dp"
+                   android:layout_marginRight="16dp"
+                   android:fontFamily="@font/montserrat"
+                   android:text="Article 3" />
+
+               <ImageView
+                   android:id="@+id/article3_img"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="40dp"
+                   android:src="@drawable/montblanc"
+                   android:paddingLeft="15dp"
+                   app:layout_constraintTop_toBottomOf="@+id/article3_title" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="16dp"
+                   android:layout_marginLeft="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:layout_marginRight="16dp"
+                   android:layout_marginTop="150dp"
+                   android:fontFamily="@font/montserrat"
+                   android:text="Last Updated: 23/4"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/article3_img" />
+
+
+
+           </android.support.v7.widget.CardView>
+
+
+       </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
     <android.support.design.widget.BottomNavigationView

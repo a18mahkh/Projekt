@@ -1,19 +1,15 @@
 package com.a18mahkh.projekt;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,8 +25,6 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
-
-    private static final String URL_DATA = "http://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=brom";
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter recyclerAdapter;
@@ -58,27 +52,36 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(recyclerAdapter);
 
+
         new FetchData().execute();
 
 
-        /*for (int i = 0; i<=10; i++){
-
-            Movie_itemlist listItem = new Movie_itemlist(
-                    "Heading" + (i + 1),
-                    "Dumbd Fuck"
-            );
-
-            listItems.add(listItem);
-
-        }
-       // loadRecyclerViewData();
-
-        recyclerAdapter=new RecyclerViewAdapter(listItems, this);
-        recyclerView.setAdapter(recyclerAdapter);*/
-
-
-
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_main,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if (id ==R.id.action_setting){
+
+            Intent intent = new Intent(getApplicationContext(), About.class);
+
+            startActivity(intent);
+
+            return true;
+        }
+        else{
+            //return false;
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
 
 
     private class FetchData extends AsyncTask<Void, Void, String> {
@@ -164,8 +167,14 @@ public class MainActivity extends AppCompatActivity {
 
                         Movie_itemlist item = new Movie_itemlist(
                                 jsonObject.getString("name"),
+                                jsonObject.getString("company"),
+                                jsonObject.getInt("size"),
+                                jsonObject.getInt("cost"),
+                                jsonObject.getString("location"),
+                                jsonObject.getString("category"),
                                 jsonObject.getString("auxdata")
                         );
+
 
                         listItems.add(item);
 

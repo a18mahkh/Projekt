@@ -2,8 +2,11 @@ package com.a18mahkh.projekt;
 
 import android.app.LauncherActivity;
 import android.content.Context;
+import android.content.Intent;
+import android.nfc.Tag;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+
 
     private List<Movie_itemlist> listItems;
     private Context context;
@@ -44,15 +47,34 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
         viewHolder.title_textView.setText(listItem.getMovie_title());
-       // viewHolder.desc_textView.setText(listItem.getMovie_description());
-
         Picasso.with(context)
                 .load(listItem.getImgUrl())
                 .into(viewHolder.banner_image);
+
+        viewHolder.banner_image.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+
+                //context.startActivity(new Intent(context, MovieDetails.class));
+
+                String movieDes = listItem.info();
+                String movieTitle= listItem.getMovie_title();
+                //String movieUrl = listItem.getImgUrl();
+                Intent intent = new Intent(context.getApplicationContext(), MovieDetails.class);
+
+                //intent.putExtra("movieUrl", movieUrl);
+                intent.putExtra("movieTitle", movieTitle);
+                intent.putExtra("movieInfo", movieDes);
+
+                context.startActivity(intent);
+
+            }
+        });
         /*Glide.with(context)
                 .asBitmap()
                 .load(listItem.getImgUrl())
                 .into(viewHolder.banner_image);*/
+
+
 
 
 
@@ -68,10 +90,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        CircleImageView banner_image;
-        TextView title_textView;
-        //TextView desc_textView;
-        //ImageView banner_image;
+       ImageView banner_image;
+       TextView title_textView;
 
 
         public ViewHolder(@NonNull View itemView) {
