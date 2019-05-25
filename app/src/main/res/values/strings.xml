@@ -1,13 +1,20 @@
 <resources>
     <string name="app_name">WEBUG Bio</string>
     <string name="action_setting">About</string>
-    <!--<string name="action_refresh">Refresh</string>-->
-    <string name="title_home">About</string>
+
+    <string name="title_home">Discover</string>
     <string name="title_suggest">Suggest</string>
     <string name="title_vote">Vote</string>
-    <string name="title_movie">Movie</string>
-    <string name="trendingText">git commit works</string>
+    <string name="title_movie">Ticket</string>
+
     <string name="nyheter">Stackars Henke som kunde inte vara med oss här idag. Vi hade skit kul.\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+        industry\s standard dummy text ever since the 1500s, when an unknown printer took
+        a galley of type and scrambled it to make a type specimen book. It has survived not only
+        five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+
+    <string name="about_text"><h2>About</h2>\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
         industry\s standard dummy text ever since the 1500s, when an unknown printer took
         a galley of type and scrambled it to make a type specimen book. It has survived not only
         five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
