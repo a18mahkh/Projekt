@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.a18mahkh.projekt">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -11,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         >
-        <activity android:name=".MountainDetailsActivity"
-            android:parentActivityName=".MainActivity"></activity>
-    <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar"-->
+        <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar"-->
 
         <activity
             android:name=".MainActivity"

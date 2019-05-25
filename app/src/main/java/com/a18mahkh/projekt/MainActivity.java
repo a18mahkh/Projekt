@@ -1,25 +1,19 @@
 package com.a18mahkh.projekt;
-/*import android.content.Intent;
-import android.os.AsyncTask;*/
-import android.content.Intent;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-/*import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,30 +23,19 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.URL;*/
+import java.net.URL;
 import java.util.ArrayList;
-
-//import de.hdodenhof.circleimageview.CircleImageView;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    //ListView myListView;
+    private static final String URL_DATA = "http://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=brom";
 
-    //private ArrayAdapter<Mountain> mountainAdapter;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter recyclerAdapter;
 
-    private static  final String TAG = "MainActivity";
-
-    //vars
-
-    private ArrayList<String> mNames = new ArrayList<>();
-    private ArrayList<String> mImageUrls= new ArrayList<>();
-
-    private ArrayList<String> sn_mNames = new ArrayList<>();
-    private ArrayList<String> sn_mImageUrls= new ArrayList<>();
-
-
-
+    private List<Movie_itemlist> listItems;
 
 
     @Override
@@ -60,178 +43,42 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-            getImages();
-        //new FetchData().execute();
+        //getting the views from xml
+
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //initializing adapter
+        listItems = new ArrayList();
 
 
-        //mountainAdapter=new ArrayAdapter(getApplicationContext(), R.layout.list_item_textview,R.id.my_item_textview);
+        recyclerAdapter=new RecyclerViewAdapter(listItems, getApplicationContext());
 
-        /*myListView = (ListView) findViewById(R.id.my_Listview);
-        myListView.setAdapter(mountainAdapter);
-        myListView.setDivider(null);
+        recyclerView.setAdapter(recyclerAdapter);
 
-        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        new FetchData().execute();
 
 
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+        /*for (int i = 0; i<=10; i++){
 
-                Intent intent = new Intent(getApplicationContext(), MountainDetailsActivity.class);
-                String mountainDetails = mountainAdapter.getItem(position).info();
+            Movie_itemlist listItem = new Movie_itemlist(
+                    "Heading" + (i + 1),
+                    "Dumbd Fuck"
+            );
 
-                intent.putExtra("mountainDetails", mountainDetails);
+            listItems.add(listItem);
 
-                startActivity(intent);
-
-
-            }
-        });
-*/
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.menu_main,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        int id = item.getItemId();
-
-        if (id == R.id.action_setting){
-
-            // mountainAdapter.clear();
-            //new FetchData().execute();
-            Intent intent = new Intent(getApplicationContext(), MountainDetailsActivity.class);
-            // String mountainDetails = mountainAdapter.getItem(position).info();
-
-            //intent.putExtra("mountainDetails", "dfdfdf");
-
-            startActivity(intent);
-
-
-            return true;
         }
-        else{
-            //return false;
-            return super.onOptionsItemSelected(item);
-        }
+       // loadRecyclerViewData();
+
+        recyclerAdapter=new RecyclerViewAdapter(listItems, this);
+        recyclerView.setAdapter(recyclerAdapter);*/
+
 
 
     }
-
-
-
-
-   /* @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        int id = item.getItemId();
-        if (id ==R.id.action_setting){
-            mountainAdapter.clear();
-            //new FetchData().execute();
-            return true;
-        }
-        else{
-            //return false;
-            return super.onOptionsItemSelected(item);
-        }
-    }*/
-
-
-    private void getImages(){
-        Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
-
-        mImageUrls.add("https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg");
-        mNames.add("Havasu Falls");
-
-        mImageUrls.add("https://i.redd.it/tpsnoz5bzo501.jpg");
-        mNames.add("Trondheim");
-
-        mImageUrls.add("https://i.redd.it/qn7f9oqu7o501.jpg");
-        mNames.add("Portugal");
-
-        mImageUrls.add("https://i.redd.it/j6myfqglup501.jpg");
-        mNames.add("Rocky Mountain National Park");
-
-
-        mImageUrls.add("https://i.redd.it/0h2gm1ix6p501.jpg");
-        mNames.add("Mahahual");
-
-        mImageUrls.add("https://i.redd.it/k98uzl68eh501.jpg");
-        mNames.add("Frozen Lake");
-
-
-        mImageUrls.add("https://i.redd.it/glin0nwndo501.jpg");
-        mNames.add("White Sands Desert");
-
-        mImageUrls.add("https://i.redd.it/obx4zydshg601.jpg");
-        mNames.add("Austrailia");
-
-        mImageUrls.add("https://i.imgur.com/ZcLLrkY.jpg");
-        mNames.add("Washington");
-
-
-        initRecycleView();
-
-    }
-
-    private void initRecycleView(){
-        Log.d(TAG, "initRecycleView: init recyler View");
-
-        LinearLayoutManager layoutManager=new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-
-        RecyclerView recyclerView=findViewById(R.id.recyclerView);
-
-        recyclerView.setLayoutManager(layoutManager);
-
-        RecycleViewAdapter adapter = new RecycleViewAdapter(this, mNames, mImageUrls);
-
-        recyclerView.setAdapter(adapter);
-    }
-
-
-
-}
-
-
-
-   /* @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.menu_main,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        int id = item.getItemId();
-
-        if (id ==R.id.action_setting){
-
-            // mountainAdapter.clear();
-            //new FetchData().execute();
-            Intent intent = new Intent(getApplicationContext(), MountainDetailsActivity.class);
-            // String mountainDetails = mountainAdapter.getItem(position).info();
-
-            intent.putExtra("mountainDetails", "dfdfdf");
-
-            startActivity(intent);
-
-
-            return true;
-        }
-        else{
-            //return false;
-            return super.onOptionsItemSelected(item);
-        }
-
-
-    }
-
-
 
 
     private class FetchData extends AsyncTask<Void, Void, String> {
@@ -248,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
             try {
                 // Construct the URL for the Internet service
-                URL url = new URL("http://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=brom");
+                URL url = new URL("http://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=a18mahkh");
 
                 // Create the request to the PHP-service, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
@@ -311,51 +158,86 @@ public class MainActivity extends AppCompatActivity {
                 JSONArray new_array = new JSONArray(o);
 
                 for (int i = 0; i < new_array.length(); i++) {
-                    try {
-
                         // JSONArray jsonFile = new JSONArray(o);
 
                         JSONObject jsonObject = new_array.getJSONObject(i);
 
-                        String inName = jsonObject.getString("name");
-                        String inLocation= jsonObject.getString("location");
-                        int inHeight= jsonObject.getInt("size");
-                        //String inImUrl = jsonObject.getString("auxdata");
+                        Movie_itemlist item = new Movie_itemlist(
+                                jsonObject.getString("name"),
+                                jsonObject.getString("location"),
+                                jsonObject.getString("auxdata")
+                        );
 
-                        Mountain mountains = new Mountain(inName, inLocation, inHeight);
-                        mountainAdapter.add(mountains);
-
-
-
-
-                    } catch (JSONException e) {
-                        Log.e("brom", "E:" + e.getMessage());
+                        listItems.add(item);
 
                     }
-                    // Implement a parsing code that loops through the entire JSON and creates objects
-                    // of our newly created Mountain class.
 
-                    //ArrayAdapter adapter=new ArrayAdapter(getApplicationContext(), R.layout.list_item_textview,R.id.my_item_textview, name_array);
-                    // myListView.setAdapter(adapter);
+                    recyclerAdapter = new RecyclerViewAdapter(listItems, getApplicationContext());
+                    recyclerView.setAdapter(recyclerAdapter);
 
-                    //Intent intent = new Intent(getApplicationContext(), MountainDetailsActivity.class);
-                    // intent.putExtra(name_array);
-
-
-
-                    //startActivity(intent);
-
-
-
-                }
             }catch (JSONException e) {
                 // TODO Auto-generated catch block
-                // e.printStackTrace();
-                // tv.setText("error2");
             }
 
         }
     }
+
+
+
+
+
+
+
+
+   /* private void loadRecyclerViewData() {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading data...");
+        progressDialog.show();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_DATA, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                progressDialog.dismiss();
+
+                try {
+
+                    JSONArray json_array = new JSONArray(response);
+                    for (int i = 0; i < json_array.length(); i++) {
+
+                        JSONObject jsonObject = json_array.getJSONObject(i);
+
+                        String movie_title = jsonObject.getString("name");
+                        String movie_description = jsonObject.getString("location");
+                        String imgUrl = jsonObject.getString("auxdata");
+
+                        Movie_itemlist movie_itemlist = new Movie_itemlist(movie_title, movie_description);
+                        listItems.add(movie_itemlist);
+                    }
+                    recyclerAdapter = new RecyclerViewAdapter(listItems, getApplicationContext());
+                    recyclerView.setAdapter(recyclerAdapter);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        progressDialog.dismiss();
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+
+    }*/
+
 }
 
-*/
