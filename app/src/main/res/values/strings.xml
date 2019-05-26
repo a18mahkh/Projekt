@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">WEBUG Bio</string>-->
     <string name="action_setting">About</string>
-    <string name="action_logo">logo</string>
+    <string name="action_profile">logo</string>
 
     <string name="title_home">Discover</string>
     <string name="title_suggest">Suggest</string>

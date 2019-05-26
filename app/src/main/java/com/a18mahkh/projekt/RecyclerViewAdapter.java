@@ -19,6 +19,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.Intent.getIntent;
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
@@ -58,10 +59,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                 String movieDes = listItem.info();
                 String movieTitle= listItem.getMovie_title();
-                //String movieUrl = listItem.getImgUrl();
+                String movieUrl = listItem.getImgUrl();
                 Intent intent = new Intent(context.getApplicationContext(), MovieDetails.class);
 
-                //intent.putExtra("movieUrl", movieUrl);
+
+                intent.putExtra("movieBannerImg", movieUrl);
                 intent.putExtra("movieTitle", movieTitle);
                 intent.putExtra("movieInfo", movieDes);
 

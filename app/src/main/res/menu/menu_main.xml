@@ -6,9 +6,9 @@
     android:layout_height="match_parent">
 
     <item
-        android:id="@+id/action_favorite"
-        android:icon="@drawable/logo_icon"
-        android:title="@string/action_logo"
+        android:id="@+id/action_profile"
+        android:icon="@drawable/profile"
+        android:title="@string/action_profile"
         app:showAsAction="ifRoom"
         />
 
