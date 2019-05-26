@@ -12,11 +12,18 @@
         app:showAsAction="ifRoom"
         />
 
-    <item
-        android:id="@+id/action_setting"
-        android:orderInCategory="10"
-        android:title="@string/action_setting"
-        android:gravity="center"
-        app:showAsAction="never" />
-
+    <group>
+        <item
+            android:id="@+id/action_about"
+            android:orderInCategory="10"
+            android:title="@string/action_setting"
+            android:gravity="center"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_comedy"
+            android:orderInCategory="10"
+            android:title="Feedback"
+            android:gravity="center"
+            app:showAsAction="never" />
+    </group>
 </menu>

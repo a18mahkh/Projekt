@@ -4,14 +4,17 @@ import android.app.LauncherActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.nfc.Tag;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
@@ -48,19 +51,24 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
         viewHolder.title_textView.setText(listItem.getMovie_title());
+
+        //VoteFragment voteFragment = VoteFragment.newInstance(listItem.getMovie_title(), listItem.getCategory());
+
         Picasso.with(context)
                 .load(listItem.getImgUrl())
                 .into(viewHolder.banner_image);
 
         viewHolder.banner_image.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
+                public void onClick(View view){
 
                 //context.startActivity(new Intent(context, MovieDetails.class));
 
                 String movieDes = listItem.info();
                 String movieTitle= listItem.getMovie_title();
                 String movieUrl = listItem.getImgUrl();
+
                 Intent intent = new Intent(context.getApplicationContext(), MovieDetails.class);
+
 
 
                 intent.putExtra("movieBannerImg", movieUrl);
@@ -75,8 +83,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 .asBitmap()
                 .load(listItem.getImgUrl())
                 .into(viewHolder.banner_image);*/
-
-
 
 
 

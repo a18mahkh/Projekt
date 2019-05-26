@@ -30,15 +30,14 @@ public class MovieDetails extends AppCompatActivity {
 
 
 
-
         TextView movie_detailTitle = findViewById(R.id.movie_detailTitle);
         movie_detailTitle.setText(movieTitle);
 
         TextView movie_details = (TextView) findViewById(R.id.movie_details_text);
         movie_details.setText(movieDes);
 
-       ImageView movie_detailBanner = findViewById(R.id.movie_detailBanner);
-       Glide.with(this)
+        ImageView movie_detailBanner = findViewById(R.id.movie_detailBanner);
+        Glide.with(this)
                 .asBitmap()
                 .load(movieBannerImg)
                 .into(movie_detailBanner);

@@ -8,7 +8,7 @@
     <string name="title_vote">Vote</string>
     <string name="title_movie">Ticket</string>
 
-    <!--<string name="nyheter">Stackars Henke som kunde inte vara med oss här idag. Vi hade skit kul.</string>-->
+    <string name="nyheter_text">Stackars Henke som kunde inte vara med oss här idag. Vi hade skit kul.</string>
 
     <string name="about_text">Appen är gjort för världens bästa WEBUG familjen som tycker om att omgås och kolla på filmer tillsammans efter all uttråkade tentor och inlämningar.
         Just nu används sociala medier för att bestämma tid och filmer som man vill kolla, men tänk om WEBUG hade en egen bio app, hur fan kul skulle det vara?\nI denna app man kan se

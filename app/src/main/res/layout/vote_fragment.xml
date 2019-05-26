@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#fff"
+    android:padding="15dp">
+
+
+        <TextView
+            android:id="@+id/voteText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vilken tycker du att vi ska kolla på nästa bioträff?"
+            android:textStyle="bold"
+            app:fontFamily="@font/montserrat"/>
+
+
+       <android.support.v7.widget.LinearLayoutCompat
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_margin="30dp">
+           <Button
+               android:id="@+id/thriller_btn"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="thriller"
+               android:textColor="#fff"
+               android:background="@color/colorPrimaryDark"/>
+
+           <Button
+               android:id="@+id/adventure_btn"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Adventure"
+               android:textColor="#fff"
+               android:layout_marginLeft="10dp"
+               android:background="@color/colorPrimaryDark"/>
+
+           <Button
+               android:id="@+id/comedy_btn"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Comedy"
+               android:textColor="#fff"
+               android:layout_marginLeft="10dp"
+               android:background="@color/colorPrimaryDark"
+               />
+
+       </android.support.v7.widget.LinearLayoutCompat>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/vote_recyclerView"
+                android:layout_marginTop="80dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+            </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

@@ -5,8 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="1dp"
-    tools:context="com.a18mahkh.projekt.MainActivity">
+    android:id="@+id/container"
+    tools:context="com.a18mahkh.projekt.MainActivity"
+    >
 
+    include
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -155,6 +158,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/title_nyheter">
 
                 <TextView
+                    android:id="@+id/article1_textview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -251,6 +255,8 @@
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
+
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="359dp"
@@ -261,7 +267,6 @@
         android:layout_marginRight="24dp"
         android:background="?android:attr/windowBackground"
         app:fontFamily="@font/montserrat"
-
         app:layout_constraintBottom_toBottomOf="@id/scrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

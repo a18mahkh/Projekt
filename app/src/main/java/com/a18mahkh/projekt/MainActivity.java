@@ -2,8 +2,14 @@ package com.a18mahkh.projekt;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -29,18 +35,56 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter recyclerAdapter;
 
     private List<Movie_itemlist> listItems;
 
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment fragment = null;
+            FragmentManager fragmentManager=getSupportFragmentManager();
+            switch (item.getItemId()) {
+
+
+                case R.id.navigation_home:
+                    fragment = new HomeFragment();
+                    break;
+
+                case R.id.navigation_suggest:
+                fragment = new SuggestFragment();
+                break;
+
+                case R.id.navigation_vote:
+                    fragment = new VoteFragment();
+                    break;
+
+                case R.id.navigation_movie:
+                    fragment = new TicketFragment();
+                    break;
+
+            }
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .commit();
+            return true;
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         //getting the views from xml
 
@@ -63,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater=getMenuInflater();
@@ -73,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
-        if (id ==R.id.action_setting){
+        if (id ==R.id.action_about){
 
             Intent intent = new Intent(getApplicationContext(), About.class);
 
@@ -169,19 +214,22 @@ public class MainActivity extends AppCompatActivity {
                         // JSONArray jsonFile = new JSONArray(o);
 
                         JSONObject jsonObject = new_array.getJSONObject(i);
+                        int runningTime = jsonObject.getInt("size");
+
 
                         Movie_itemlist item = new Movie_itemlist(
-                                jsonObject.getString("name"),
-                                jsonObject.getString("company"),
-                                jsonObject.getInt("size"),
-                                jsonObject.getInt("cost"),
-                                jsonObject.getString("location"),
-                                jsonObject.getString("category"),
-                                jsonObject.getString("auxdata")
-                        );
+                                    jsonObject.getString("name"),
+                                    jsonObject.getString("company"),
+                                    jsonObject.getInt("size"),
+                                    jsonObject.getInt("cost"),
+                                    jsonObject.getString("location"),
+                                    jsonObject.getString("category"),
+                                    jsonObject.getString("auxdata")
+                            );
 
-
+                    //  VoteFragment voteFragment = VoteFragment.newInstance( jsonObject.getString("name"), jsonObject.getString("auxdata"));
                         listItems.add(item);
+
 
                     }
 
@@ -194,12 +242,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
-
-
-
-
-
 
 
    /* private void loadRecyclerViewData() {
