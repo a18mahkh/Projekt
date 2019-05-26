@@ -3,7 +3,6 @@
     package="com.a18mahkh.projekt">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +13,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MovieDetails"
             android:parentActivityName=".MainActivity"></activity>
+
+
         <activity
             android:name=".About"
             android:parentActivityName=".MainActivity" /> <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" -->

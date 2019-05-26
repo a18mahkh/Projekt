@@ -6,6 +6,13 @@
     android:layout_height="match_parent">
 
     <item
+        android:id="@+id/action_favorite"
+        android:icon="@drawable/logo_icon"
+        android:title="@string/action_logo"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
         android:id="@+id/action_setting"
         android:orderInCategory="10"
         android:title="@string/action_setting"
